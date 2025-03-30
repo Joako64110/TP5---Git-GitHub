@@ -1,0 +1,178 @@
+●	¿Qué es GitHub?
+
+ GitHub es un servicio basado en la nube que aloja un sistema de control de versiones (VCS) llamado Git. Éste permite a los desarrolladores colaborar y realizar cambios en proyectos compartidos, a la vez que mantienen un seguimiento detallado de su progreso.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Cómo crear un repositorio en GitHub?
+
+ Un repositorio, o repo, será el eje central de tu proyecto. Puede ser un archivo o una colección de archivos que contengan código, imágenes, texto o cualquier otra cosa. Para crear un repositorio tienes varias maneras de hacerlo:
+	- En la esquina superior derecha de cualquier página (de GitHub), selecciona  y luego haz clic en "Nuevo repositorio".
+	- Otra opción para crear un repositorio con la estructura de directorios y los archivos de un repositorio existente es seleccionar el menú desplegable "Escoger una plantilla" y hacer clic un repositorio de plantilla. Verás repositorios de plantillas que te pertenecen a ti y a las organizaciones de las que eres miembro o bien repositorios de plantillas que has usado anteriormente.
+	- Si decidió elegir una plantilla, también puede incluir la estructura de directorios y los archivos de todas las ramas en la plantilla, y no únicamente aquellos de la rama predeterminada, seleccione "Include all branches".
+	- Usa el menú desplegable "Propietario" para seleccionar la cuenta que quieres que sea propietaria del repositorio.
+	- Teclea el nombre de tu repositorio, y una descripción opcional.
+	- Elige la visibilidad del repositorio.
+	- Si no estás utilizando una plantilla, hay varios elementos opcionales que puedes pre-cargar en tu repositorio. Si estás importando un repositorio existente a GitHub, no elijas ninguna de estas opciones, ya que producirás un conflicto de fusión. Puedes agregar o crear nuevos archivos usando la interfaz de usuario o elegir agregar nuevos archivos usando luego la línea de comando.
+	- Opcionalmente, si la cuenta personal o la organización en la que va a crear usa cualquier GitHub Apps de GitHub Marketplace, seleccione las aplicaciones que le gustaría usar en el repositorio.
+	- Haga clic en "Create repository" (Crear repositorio).
+	- En la parte inferior de la página de Configuración rápida resultante, en "Importar el código del repositorio anterior", puedes elegir importar un proyecto en tu nuevo repositorio. Para ello, haga clic en "Import code".
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Cómo crear una rama en Git?
+
+ El proceso de creación de una nueva rama en GIT se realiza en 3 pasos. Los pasos son:
+	1ro- Comprobar tu rama actual: Antes de crear una nueva rama, es importante saber en qué rama estás actualmente. Utiliza el comando <git status>. Este comando mostrará tu rama actual y cualquier cambio no comprometido.
+	2do- Crear la nueva rama: Para crear una nueva rama y cambiar a ella, utiliza el comando <git checkout> con el comando <-b> seguido del nombre de la nueva rama (<git checkout -b [branch-name]>). Sustituye "[branch-name]" por el nombre de la rama que desees. Alternativamente, puedes crear una rama sin pasar a ella utilizando <git branch [branch-name]>.
+	3ro- Enviar la nueva rama al repositorio remoto: Tras crear una nueva rama localmente, puedes empujarla al repositorio remoto utilizando <git push -u origin [branch-name]>. Este comando establece una conexión de seguimiento entre tu rama local y la rama remota.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Cómo cambiar a una rama en Git?
+
+ Para cambiar a una rama existente, puedes usar <git checkout> nuevamente (sin el indicador <-b> ) y pasar el nombre de la rama a la que desea cambiar. También hay un atajo útil para volver a la rama anterior en la que estabas, pasando  <->  a  <git checkout> en lugar de un nombre de rama.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Cómo fusionar ramas en Git?
+
+ Primero, cambia a la rama a la que quieres fusionar (<git checkout [target-branch]>). Luego fusiona la otra rama con <git merge> (<git merge [source-branch]>).
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Cómo crear un commit en Git?
+
+ Para hacer un commit en Git, debemos seguir los siguientes pasos:
+	1ro- Identificar los archivos que deseamos commitear.
+	2do- Agregarlos/prepararlos para hacer commit con el comando <git add ruta_completa/nombre_archivo>. Si queremos añadir todos los archivos, lo hacemos con <git add .>. Si deseamos quitar uno de los archivos que se han preparado para hacer el commit, debemos hacelo con <git rm --cached nombre_archivo>.
+	3ro- Iniciar el proceso de commit con <git commit>. Si queremos incluir el mensaje del commit al mismo tiempo, usamos <git commit -m 'mensaje descriptivo'>. Si hemos olvidado commitear algún archivo y aún no hemos hecho push, podemos agregar más archivos al último commit haciendole add y usando commit de la siguiente forma: <git commit -m "Mensaje" --amend>.
+	4to- Una vez hecho esto, lo que debemos hacer es subir al repositorio remoto este commit. Esto lo hacemos con <git push origin nombre_mi_rama>
+
+ En este punto, nos puede dar algún conflicto si hemos tocado archivos que otra persona ha modificado. Lo que tenemos que hacer es actualizar nuestra rama con los últimos cambios para que se haga un merge automático y en caso de haber conflictos que no se puedan resolver automáticamente, los resolvemos manualmente.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Cómo enviar un commit a GitHub?
+
+ (Pregunta respondida en la pregunta anterior (<git push>))
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Qué es un repositorio remoto?
+
+ Los repositorios remotos son versiones de tu proyecto que están hospedadas en Internet o en cualquier otra red. Puedes tener varios de ellos, y en cada uno tendrás generalmente permisos de solo lectura o de lectura y escritura.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Cómo agregar un repositorio remoto a Git?
+
+ Para agregar un repositorio remoto en Git, debes seguir los siguientes pasos:
+	1ro- Abre la terminal y navega hasta el directorio de tu proyecto.
+	2do- Usa el comando <git remote add> para conectar el directorio local al repositorio remoto. Por ejemplo, <git remote add origin https://github.com/user/repo.git>.
+	3ro- Verifica la URL remota usando el comando <git remote -v>.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Cómo empujar cambios a un repositorio remoto?
+
+ Para empujar cambios a un repositorio remoto, se necesita seguir los siguientes pasos:
+	1ro- Ejecuta <git init> en la terminal para inicializar el repositorio local.
+	2do- Agrega los archivos con <git add .>.
+	3ro- Comitee los cambios con <git commit -m "mensaje">.
+	4to- Finalmente, empuja los archivos a Github con <git push origin master>.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Cómo tirar de cambios de un repositorio remoto?
+
+ Para tirar cambios de un repositorio remoto, puedes seguir estos pasos:
+	1ro- Ejecuta el comando <git pull>: Este comando sincroniza tu repositorio local con el repositorio remoto y obtiene los cambios más recientes.
+	2do- Asegúrate de tener un directorio de trabajo limpio: Si tienes cambios no comprometidos, utiliza <git stash> para guardarlos temporalmente antes de hacer <git pull>.
+	3ro- Verifica los cambios: Después de ejecutar <git pull>, revisa los cambios que se han fusionado en tu repositorio local. Si necesitas más control sobre los cambios, puedes usar <git fetch> para obtener los cambios sin fusionarlos automáticamente.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Qué es un historial de Git?
+
+ El historial de Git es un registro preciso de todas las confirmaciones que contienen los cambios en los archivos de un proyecto. El comando <git log> permite visualizar el historial de los commits, filtrarlo y buscar cambios específicos.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Cómo ver el historial de Git?
+
+ (Pregunta respondida en la pregunta anterior (<git log>))
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Cómo buscar en el historial de Git?
+
+ Para buscar en el historial de Git, puedes utilizar los comandos <git grep>, <git log>, <git show> y <git reflog>.Algunos de los comandos para buscar en el historial de Git son:
+	- <git grep <pattern> $(git rev-list --all)> (Busca un patrón en todo el historial de confirmaciones)
+	- <git log -p -G <pattern>> (Busca confirmaciones que introduzcan o eliminen un patrón)
+	- <git log -p -S <string>> (Busca confirmaciones que agreguen o eliminen una cadena específica)
+	- <git log --grep=<pattern>> (Busca un patrón en los mensajes de confirmación)
+	- <git log --author "nombre de autor"> (Filtra el historial por autor)
+	- <git log -L número_de_línea_inicial,número_de_línea_final:nombre_de_archivo> (Filtra registros)
+ Otras opciones para buscar en el historial de Git son: 
+	- <--all> (Busca en todas las ramas y etiquetas)
+	- <--branches[=<pattern>]> (Busca en ramas específicas)
+	- <--tags[=<pattern>]> (Busca en etiquetas específicas)
+	- <--pickaxe-regex> (Usa expresiones regulares POSIX extendidas en lugar de buscar una cadena)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Cómo borrar el historial de Git?
+
+ Para borrar el historial de git, se pueden seguir los siguientes pasos:
+	1ro- Ver el historial completo: Para ver una lista completa con los últimos 500 comandos, debemos ejecutar en la Terminal <history>.
+	2do- Eliminar un comando determinado (x): Si queremos eliminar un comando en concreto, deberemos quedarnos con su número que aparece al lado izquierdo (<history -d X).
+	3ro- Eliminar todo el historial.
+	4to- Purgar un archivo del historial de tu repositorio: Puede purgar un archivo del historial del repositorio mediante la herramienta <git filter-repo> o la herramienta de código abierto BFG Repo-Cleaner.
+	5to- Eliminar los datos de GitHub por completo.
+	6to- Evitar confirmaciones accidentales en el futuro.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Qué es un repositorio privado en GitHub?
+
+ Un repositorio privado es un lugar donde puedes almacenar el código, los archivos y el historial de revisiones de cada archivo. Los repositorios pueden contar con múltiples colaboradores y pueden ser públicos como privados.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Cómo crear un repositorio privado en GitHub?
+
+ Para crear un repositorio privado solo hace falta seguir los pasos para crear un repositorio público, solo que cuando llegue el momento de ponerle nombre y personalizar diferentes opciones/caracteristicas que nos da GiutHub, debemos desmarcar la casilla de "Repositorio Público" y marcar la casilla de "Repositorio Privado".
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Cómo invitar a alguien a un repositorio privado en GitHub?
+
+ Para invitar a alguien a un repositorio privado en GitHub, sigue estos pasos:
+	1ro- Ve a la pestaña "Settings" (Configuración) del repositorio.
+	2do- Selecciona "Manage access" (Gestionar acceso).
+	3ro- Haz clic en "Invite a collaborator" (Invitar a un colaborador) y escribe el nombre de usuario de la persona que deseas invitar.
+	4to- Confirma la invitación y gestiona los permisos.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Qué es un repositorio público en GitHub?
+
+ Un repositorio público en GitHub es un lugar donde se almacena el código, los archivos y el historial de revisiones de cada archivo. Estos repositorios se utilizan para compartir software de código abierto y permiten la colaboración entre colaboradores (sin necesidad de invitarlos como "colaboradores" como pasaba con los repositorios privados).
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Cómo crear un repositorio público en GitHub?
+
+ (Respondido en la segunda pregunta: "¿Cómo crear un repositorio en GitHub?")
+
+---------------------------------------------------------------------------------------------------------------------------
+
+●	¿Cómo compartir un repositorio público en GitHub?
+
+ Para compartir un repositorio público en GitHub, sigue estos pasos:
+	1ro- Crea un repositorio público: Asegúrate de que tu repositorio esté configurado como público para que cualquier persona pueda ver tu código.
+	2do- Comparte el enlace: Copia el enlace del repositorio desde la barra de direcciones de tu navegador y compártelo con quien desees.
+	3ro- Usa redes sociales o plataformas: Puedes compartir el enlace en redes sociales, foros o cualquier plataforma donde quieras mostrar tu trabajo.
+
+ Estos pasos te permitirán compartir tu repositorio de manera efectiva.
